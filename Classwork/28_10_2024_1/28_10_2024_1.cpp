@@ -7,6 +7,7 @@ int main()
 {
     setlocale(LC_ALL, "rus");
     std::vector<char> text = {};
+    std::vector<char> tempWord;
     size_t size = 0;
     int i = 0;
 
@@ -19,43 +20,51 @@ int main()
     {
         while (!file.eof())
         {
-            std::vector<char> tempWord;
+            
             char c = file.get();
-            if (c == '-')
+            std::cout << c;
+            /*while (c != ' ')
             {
-                tempWord.push_back(c);
-                size++;
-                c = file.get();
-                if (c == '\n')
+                if (c == '-')
                 {
                     tempWord.push_back(c);
                     size++;
                     c = file.get();
-                    if (c == '-'){}
+                    if (c == '\n')
+                    {
+                        tempWord.push_back(c);
+                        size++;
+                        c = file.get();
+                        if (c == '-') {}
+                        else
+                        {
+                            tempWord.push_back(c);
+                            size++;
+                            c = file.get();
+                        }
+                    }
                     else
                     {
                         tempWord.push_back(c);
                         size++;
+                        c = file.get();
                     }
                 }
                 else
                 {
-                    i++;
+                    tempWord.push_back(c);
                     size++;
+                    c = file.get();
                 }
-            }
-            else
+            }*/
+            for (int j = 0; j < size; j++)
             {
-                i++;
-                size++;
+                std::cout << tempWord[j];
             }
         }
 
         file.close();
     }
-    for (int j = 0; j < size; j++)
-    {
-        std::cout << tempWord[j]
-    }
+    
     return 0;
 }
