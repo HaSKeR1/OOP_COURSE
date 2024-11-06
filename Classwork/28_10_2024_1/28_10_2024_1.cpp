@@ -2,6 +2,27 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <stack>
+
+class ISMAutomat
+{
+public:
+    virtual std::vector<std::vector<char>> parse(std::vector<char> inputText) = 0;
+};
+
+class CSMAutomat : ISMAutomat
+{
+private:
+    std::vector<char> inputText;
+    std::stack<std::vector<char>> stack;
+public:
+    std::vector<std::vector<char>> parse(std::vector<char> inputText)
+    {
+        this->inputText = inputText;
+
+        // Логика автомата
+    }
+};
 
 int main()
 {
@@ -9,10 +30,9 @@ int main()
     std::vector<char> text = {};
     std::vector<char> tempWord;
     size_t size = 0;
-    int i = 0;
 
     std::ifstream file;
-    file.open("file.txt");
+    file.open("input.txt");
 
     if (!file.is_open())
         std::cout << "Файл не может быть открыт!";
