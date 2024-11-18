@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{2768c4a0-1772-4e83-b476-d6ab3760075a}</ProjectGuid>
-    <RootNamespace>My11112024</RootNamespace>
+    <ProjectGuid>{4bc3a261-67f2-4e86-bba2-0dcdbf6cad5d}</ProjectGuid>
+    <RootNamespace>QuickSort</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,10 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="11_11_2024.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="simple_node.h" />
+    <ClCompile Include="QuickSort.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include "11_11_2024.h"
+#include "simple_node.h"
 #include <map>
 
 struct Node {
