@@ -1,0 +1,70 @@
+﻿#include <iostream>
+
+void SearchMaxAmountInterval(int& row, int column, int**& numbers) {
+    int minRow = 0;
+
+    for (int j = 1; j < row; j++) {
+        if (numbers[j][1] < numbers[minRow][1]) {
+            minRow = j;
+        }
+    }
+
+    std::cout << "Минимальная строка: " << numbers[minRow][0] << " " << numbers[minRow][1] << std::endl;
+
+    int minFirst = numbers[minRow][0];
+    int minSecond = numbers[minRow][1];
+
+    int newRowCount = 0;
+    int** newNumbers = new int* [row];
+    for (int i = 0; i < row; i++) {
+        if (numbers[i][0] <= minFirst && numbers[i][1] >= minSecond) {
+            newNumbers[newRowCount] = new int[column];
+            for (int j = 0; j < column; j++) {
+                newNumbers[newRowCount][j] = numbers[i][j];
+            }
+            newRowCount++;
+        }
+    }
+    
+    for (int i = 0; i < row; i++) {
+        delete[] numbers[i];
+    }
+    delete[] numbers;
+
+    numbers = newNumbers;
+    row = newRowCount;
+}
+
+int main() {
+    setlocale(LC_ALL, "rus");
+    int row, column = 2;
+    std::cin >> row;
+
+    int** numbers = new int* [row];
+    for (int i = 0; i < row; i++) {
+        numbers[i] = new int[column];
+    }
+
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            std::cin >> numbers[i][j];
+        }
+    }
+
+    SearchMaxAmountInterval(row, column, numbers);
+
+    std::cout << "Модифицированный массив:" << std::endl;
+    for (int i = 0; i < row; i++) {
+        for (int j = 0; j < column; j++) {
+            std::cout << numbers[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
+
+    for (int i = 0; i < row; i++) {
+        delete[] numbers[i];
+    }
+    delete[] numbers;
+
+    return 0;
+}
