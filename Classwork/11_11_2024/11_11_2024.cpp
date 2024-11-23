@@ -3,7 +3,34 @@
 #include "simple_node.h"
 #include <map>
 
-struct Node {
+struct Node {void DeleteTree(Node* root) {
+    if (root) {
+        DeleteTree(root->left);
+        DeleteTree(root->right);
+        delete root;
+    }
+}
+
+int main() {
+    Node* node = nullptr;
+    node = InsertNode(node, 50);
+    node = InsertNode(node, 30);
+    node = InsertNode(node, 20);
+    node = InsertNode(node, 40);
+    node = InsertNode(node, 70);
+    node = InsertNode(node, 60);
+    node = InsertNode(node, 80);
+    InorderWalk(node);
+    std::cout << std::endl;
+    DeleteNode(node, 20);
+    InorderWalk(node);
+    std::cout << std::endl;
+    node = InsertNode(node, 35);
+    InorderWalk(node);
+    DeleteTree(node);
+    return 0;
+}
+
     Node* left;
     Node* right;
     int data;
@@ -89,11 +116,16 @@ Node* DeleteNode(Node* root, int data) {
     }
 }
 
+void DeleteTree(Node* root) {
+    if (root) {
+        DeleteTree(root->left);
+        DeleteTree(root->right);
+        delete root;
+    }
+}
+
 int main() {
-    std::map<std::string, int> alf_val{ {"a", 1}, };
-
     Node* node = nullptr;
-
     node = InsertNode(node, 50);
     node = InsertNode(node, 30);
     node = InsertNode(node, 20);
@@ -106,6 +138,8 @@ int main() {
     DeleteNode(node, 20);
     InorderWalk(node);
     std::cout << std::endl;
-    InsertNode(node, 35);
+    node = InsertNode(node, 35);
     InorderWalk(node);
+    DeleteTree(node);
+    return 0;
 }
