@@ -9,7 +9,10 @@ public:
 };
 
 int main() {
-    std::vector<> CLASS_NAME
+    std::vector<CLASS_NAME> arr;
+    for (int i = 0; i < 7; i++) {
+
+    }
     CLASS_NAME(5);
     [](const CLASS_NAME& lhs, const CLASS_NAME& rhs) { if (lhs.val < rhs.val) { return true; } return false; };
 }
